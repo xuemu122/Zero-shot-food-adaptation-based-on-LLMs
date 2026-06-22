@@ -76,9 +76,11 @@
 ```json
 {
   "paths": {
-    "isaac_stage": "你的场景 USD 路径",
+    "isaac_stage": "dafan/dafan/dafanchangjing.usd",
+    "robot_urdf": "dafan/dafan/local_mqon69sb_ywdvm7_urdf_stl/robot.urdf",
     "policy_checkpoint": "GRITS 或扩散策略 checkpoint 路径",
-    "food_asset_root": "食物资产目录"
+    "food_asset_root": "dafan/dafan/food",
+    "isaac_food_assets_csv": "data/isaac_food_assets.csv"
   }
 }
 ```
@@ -110,3 +112,52 @@ A_{k-1} = A_{k-1} - rho * grad(J) + eta * action_bias
 
 - `outputs/isaacsim_experiment_results.csv`
 - `outputs/isaacsim_summary.csv`
+
+## 当前资产检查结论
+
+- 推荐使用主场景：`dafan/dafan/dafanchangjing.usd`。
+- 推荐使用机器人：`dafan/dafan/local_mqon69sb_ywdvm7_urdf_stl/robot.urdf`，这个 URDF 的 mesh 引用完整，并且替换了旧版关节方向有问题的机械臂。
+- 旧版 `dafan/dafan/local_mqdeszw7_2fp5fc_urdf_stl（jiu）/robot.urdf` 已标注为旧，不建议继续用于实验。
+- 暂时不要直接用 `dafan/dafan/so101_new_calib.urdf`，它引用的 `assets/*.stl` 当前目录里没有。
+- 食物资产在 `dafan/dafan/food/`，包括片、条、块、球等形状。
+- 食物 USD 里大多已有 RigidBody，但没有看到明确的 mass/friction/restitution 字段；建议运行时根据 `data/isaac_food_assets.csv` 给每个食物补物理材质。
+
+## 推荐物理参数
+
+Isaac Sim 里建议至少给每个食物设置这些参数：
+
+- `mass`：质量，影响舀取时是否容易被推走。
+- `static_friction`：静摩擦，影响食物起步滑动难度。
+- `dynamic_friction`：动摩擦，影响滑动过程中的阻力。
+- `restitution`：恢复系数，影响碰撞后反弹程度。
+- `linear_damping`：线速度阻尼，可抑制不真实滑动。
+- `angular_damping`：角速度阻尼，可抑制不真实滚动和翻转。
+
+推荐初始范围：
+
+| 形状 | mass | static_friction | dynamic_friction | restitution | linear_damping | angular_damping | 说明 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| 薄片 / 片状 | 0.015-0.035 | 0.7-1.3 | 0.5-1.0 | 0.0-0.08 | 0.05-0.15 | 0.10-0.30 | 容易翻、贴勺边，适合模拟粘性和易碎性 |
+| 条状 | 0.035-0.070 | 0.25-0.60 | 0.18-0.45 | 0.10-0.25 | 0.03-0.10 | 0.05-0.20 | 有方向性，圆条易滚，扁条可降低 rollability |
+| 小块 | 0.040-0.070 | 0.45-0.80 | 0.30-0.60 | 0.03-0.15 | 0.02-0.08 | 0.03-0.12 | 作为中等难度样本，比较稳定 |
+| 大块 | 0.080-0.130 | 0.50-0.90 | 0.35-0.70 | 0.02-0.12 | 0.03-0.10 | 0.04-0.15 | 质量更大，容易考察进勺深度和力控制 |
+| 球 / 圆粒 | 0.025-0.060 | 0.10-0.35 | 0.06-0.25 | 0.25-0.60 | 0.01-0.05 | 0.01-0.08 | 主要用于测试易滚动和溢漏 |
+
+当前食物可以先按下面这组参数设：
+
+| 食物 | 类型 | mass | static_friction | dynamic_friction | restitution | hardness | stickiness | rollability | fragility |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `bopian.usd` | 薄片 | 0.018 | 1.10 | 0.85 | 0.02 | 0.28 | 0.72 | 0.15 | 0.75 |
+| `pian.usd` | 片 | 0.026 | 0.75 | 0.55 | 0.05 | 0.38 | 0.45 | 0.20 | 0.58 |
+| `tiao(ying).usd` | 条 | 0.045 | 0.35 | 0.25 | 0.18 | 0.70 | 0.15 | 0.72 | 0.25 |
+| `qiu.usd` | 球 | 0.035 | 0.22 | 0.16 | 0.35 | 0.55 | 0.08 | 0.92 | 0.12 |
+| `xiaokeli.usd` | 小块 | 0.050 | 0.55 | 0.42 | 0.08 | 0.62 | 0.25 | 0.35 | 0.25 |
+| `dakeli.usd` | 大块 | 0.095 | 0.62 | 0.48 | 0.06 | 0.68 | 0.22 | 0.25 | 0.20 |
+
+调参时优先保证现象合理：
+
+- 如果食物一碰就乱飞：降低 `restitution`，提高 `linear_damping`。
+- 如果球不滚：降低摩擦，降低 `angular_damping`。
+- 如果片状食物完全不滑：降低 `static_friction` 和 `dynamic_friction`。
+- 如果粘性食物表现不出来：提高摩擦，降低 `restitution`，适当提高阻尼。
+- 如果所有食物都太容易舀起：增加质量或降低摩擦差异，让形状和接触更有影响。

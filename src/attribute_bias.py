@@ -17,6 +17,12 @@ class Food:
     split: str
     source: str
     attrs: np.ndarray
+    asset_path: str = ""
+    shape: str = ""
+    mass: float = 0.0
+    static_friction: float = 0.0
+    dynamic_friction: float = 0.0
+    restitution: float = 0.0
 
 
 def load_foods(path: Path) -> list[Food]:
@@ -33,6 +39,36 @@ def load_foods(path: Path) -> list[Food]:
                 dtype=float,
             )
             foods.append(Food(row["food"], row["split"], row["source"], attrs))
+    return foods
+
+
+def load_isaac_food_assets(path: Path) -> list[Food]:
+    foods: list[Food] = []
+    with path.open("r", encoding="utf-8", newline="") as f:
+        for row in csv.DictReader(f):
+            attrs = np.array(
+                [
+                    float(row["hardness"]),
+                    float(row["stickiness"]),
+                    float(row["rollability"]),
+                    float(row["fragility"]),
+                ],
+                dtype=float,
+            )
+            foods.append(
+                Food(
+                    name=row["food"],
+                    split=row["split"],
+                    source="isaac_asset",
+                    attrs=attrs,
+                    asset_path=row["asset_path"],
+                    shape=row["shape"],
+                    mass=float(row["mass"]),
+                    static_friction=float(row["static_friction"]),
+                    dynamic_friction=float(row["dynamic_friction"]),
+                    restitution=float(row["restitution"]),
+                )
+            )
     return foods
 
 

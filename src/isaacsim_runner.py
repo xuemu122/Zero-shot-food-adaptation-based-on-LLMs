@@ -11,7 +11,14 @@ from typing import Any
 
 import numpy as np
 
-from attribute_bias import BASE_ACTION, Food, load_foods, make_method_bias, train_bias_mapper
+from attribute_bias import (
+    BASE_ACTION,
+    Food,
+    load_foods,
+    load_isaac_food_assets,
+    make_method_bias,
+    train_bias_mapper,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,12 +56,14 @@ class IsaacFoodScoopEnvAdapter:
 
         Wire this method to your environment:
         1. Reset the scene and spawn `food.name`.
-        2. Set food physical parameters from `food.attrs`.
-        3. Run the original GRITS/diffusion policy for `baseline_grits`.
-        4. For `llm_bias` and `human_upper_bound`, inject `action_bias` during denoising:
+        2. Spawn `food.asset_path` if present.
+        3. Set food physical parameters from `food.mass`, `food.static_friction`,
+           `food.dynamic_friction`, `food.restitution`, and `food.attrs`.
+        4. Run the original GRITS/diffusion policy for `baseline_grits`.
+        5. For `llm_bias` and `human_upper_bound`, inject `action_bias` during denoising:
            A_{k-1} = A_{k-1} - rho * grad(J) + eta * action_bias.
-        5. Detect success and spill from your existing task metrics.
-        6. Compute RMSE between final biased trajectory and baseline trajectory if available.
+        6. Detect success and spill from your existing task metrics.
+        7. Compute RMSE between final biased trajectory and baseline trajectory if available.
         """
         raise NotImplementedError(
             "Connect IsaacFoodScoopEnvAdapter.run_policy to the existing Isaac Sim environment."
@@ -150,7 +159,11 @@ def run(config: dict[str, Any], dry_run: bool) -> tuple[Path, Path]:
     paths = config["paths"]
     foods = load_foods(resolve_path(paths["food_attributes_csv"]))
     train_foods = [food for food in foods if food.split == "train"]
-    eval_foods = [food for food in foods if food.split in {"test", "real"}]
+    asset_csv = paths.get("isaac_food_assets_csv", "")
+    if asset_csv:
+        eval_foods = load_isaac_food_assets(resolve_path(asset_csv))
+    else:
+        eval_foods = [food for food in foods if food.split in {"test", "real"}]
     weights = train_bias_mapper(train_foods)
 
     if dry_run:
@@ -177,6 +190,8 @@ def run(config: dict[str, Any], dry_run: bool) -> tuple[Path, Path]:
                         {
                             "food": food.name,
                             "split": food.split,
+                            "shape": food.shape,
+                            "asset_path": food.asset_path,
                             "method": method,
                             "trial_index": trial_index,
                             "seed": trial_seed,
@@ -191,6 +206,10 @@ def run(config: dict[str, Any], dry_run: bool) -> tuple[Path, Path]:
                             "attr_stickiness": used_attrs[1],
                             "attr_rollability": used_attrs[2],
                             "attr_fragility": used_attrs[3],
+                            "mass": food.mass,
+                            "static_friction": food.static_friction,
+                            "dynamic_friction": food.dynamic_friction,
+                            "restitution": food.restitution,
                             "notes": result.notes,
                         }
                     )

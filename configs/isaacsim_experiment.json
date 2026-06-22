@@ -27,11 +27,13 @@
   "bias_scale": 0.85,
   "paths": {
     "food_attributes_csv": "data/foods.csv",
+    "isaac_food_assets_csv": "data/isaac_food_assets.csv",
     "output_csv": "outputs/isaacsim_experiment_results.csv",
     "summary_csv": "outputs/isaacsim_summary.csv",
-    "isaac_stage": "",
+    "isaac_stage": "dafan/dafan/dafanchangjing.usd",
+    "robot_urdf": "dafan/dafan/local_mqon69sb_ywdvm7_urdf_stl/robot.urdf",
     "policy_checkpoint": "",
-    "food_asset_root": ""
+    "food_asset_root": "dafan/dafan/food"
   },
   "isaac": {
     "headless": true,

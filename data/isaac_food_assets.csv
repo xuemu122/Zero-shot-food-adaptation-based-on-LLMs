@@ -1,0 +1,7 @@
+food,asset_path,shape,split,mass,static_friction,dynamic_friction,restitution,hardness,stickiness,rollability,fragility,notes
+bopian,dafan/dafan/food/bopian.usd,sheet,test,0.018,1.10,0.85,0.02,0.28,0.72,0.15,0.75,thin sticky fragile sheet
+pian,dafan/dafan/food/pian.usd,sheet,test,0.026,0.75,0.55,0.05,0.38,0.45,0.20,0.58,regular sheet
+tiao_ying,dafan/dafan/food/tiao(ying).usd,strip,test,0.045,0.35,0.25,0.18,0.70,0.15,0.72,0.25,hard strip with directional rolling risk
+qiu,dafan/dafan/food/qiu.usd,sphere,test,0.035,0.22,0.16,0.35,0.55,0.08,0.92,0.12,round rolling object
+xiaokeli,dafan/dafan/food/xiaokeli.usd,block,test,0.050,0.55,0.42,0.08,0.62,0.25,0.35,0.25,small block
+dakeli,dafan/dafan/food/dakeli.usd,block,test,0.095,0.62,0.48,0.06,0.68,0.22,0.25,0.20,large block
