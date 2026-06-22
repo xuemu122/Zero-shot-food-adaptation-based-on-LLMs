@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<robot name="generated_robot">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.00086111 -0.1813544 0.00770474" rpy="0 0 0"/>
+      <mass value="0.70093924"/>
+      <inertia ixx="0.00116811" ixy="0" ixz="0" iyy="0.00260125" iyz="0.00001864" izz="0.00264283"/>
+    </inertial>
+    <visual name="part_007_visual_1">
+      <origin xyz="0 0 0" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_007_NAUO7.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_007_collision_1">
+      <origin xyz="0 0 0" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_007_NAUO7.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_006_visual_2">
+      <origin xyz="0 0 0" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_006_NAUO6.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_006_collision_2">
+      <origin xyz="0 0 0" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_006_NAUO6.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_001_visual_3">
+      <origin xyz="0 0 0" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_001_NAUO1.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_001_collision_3">
+      <origin xyz="0 0 0" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_001_NAUO1.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <link name="link_002">
+    <inertial>
+      <origin xyz="0.00015219 -0.03576128 0.0578336" rpy="0 0 0"/>
+      <mass value="0.05664456"/>
+      <inertia ixx="0.00002335" ixy="-1e-8" ixz="-7e-8" iyy="0.00003185" iyz="-4.4e-7" izz="0.00002735"/>
+    </inertial>
+    <visual name="part_003_visual_1">
+      <origin xyz="-0.00086197 0.22014068 -0.02325593" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_003_NAUO3.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_003_collision_1">
+      <origin xyz="-0.00086197 0.22014068 -0.02325593" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_003_NAUO3.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_008_visual_2">
+      <origin xyz="-0.00086197 0.22014068 -0.02325593" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_008_NAUO8.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_008_collision_2">
+      <origin xyz="-0.00086197 0.22014068 -0.02325593" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_008_NAUO8.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <link name="link_003">
+    <inertial>
+      <origin xyz="0.00003407 -0.04405807 0.06706717" rpy="0 0 0"/>
+      <mass value="0.25426906"/>
+      <inertia ixx="0.00078548" ixy="3.5e-7" ixz="-3.1e-7" iyy="0.00062631" iyz="0.00004659" izz="0.00040959"/>
+    </inertial>
+    <visual name="part_009_visual_1">
+      <origin xyz="-0.00081111 0.25443099 -0.10393834" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_009_NAUO9.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_009_collision_1">
+      <origin xyz="-0.00081111 0.25443099 -0.10393834" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_009_NAUO9.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_010_visual_2">
+      <origin xyz="-0.00081111 0.25443099 -0.10393834" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_010_NAUO10.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_010_collision_2">
+      <origin xyz="-0.00081111 0.25443099 -0.10393834" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_010_NAUO10.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <link name="link_004">
+    <inertial>
+      <origin xyz="0.0000288 -0.05917088 0.07052057" rpy="0 0 0"/>
+      <mass value="0.3005256"/>
+      <inertia ixx="0.00106467" ixy="3.4e-7" ixz="-4.6e-7" iyy="0.00075906" iyz="0.00013298" izz="0.00059397"/>
+    </inertial>
+    <visual name="part_011_visual_1">
+      <origin xyz="-0.0007611 0.35129309 -0.19810444" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_011_NAUO11.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_011_collision_1">
+      <origin xyz="-0.0007611 0.35129309 -0.19810444" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_011_NAUO11.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_004_visual_2">
+      <origin xyz="-0.0007611 0.35129309 -0.19810444" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_004_NAUO4.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_004_collision_2">
+      <origin xyz="-0.0007611 0.35129309 -0.19810444" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_004_NAUO4.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_012_visual_3">
+      <origin xyz="-0.0007611 0.35129309 -0.19810444" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_012_NAUO12.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_012_collision_3">
+      <origin xyz="-0.0007611 0.35129309 -0.19810444" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_012_NAUO12.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <link name="link_005">
+    <inertial>
+      <origin xyz="-0.0013334 -0.03320977 0.03990423" rpy="0 0 0"/>
+      <mass value="0.37513573"/>
+      <inertia ixx="0.00031511" ixy="-0.00000184" ixz="0.00000277" iyy="0.00030999" iyz="0.00000805" izz="0.000283"/>
+    </inertial>
+    <visual name="part_005_visual_1">
+      <origin xyz="-0.00021981 0.46016551 -0.33295674" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_005_NAUO5.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_005_collision_1">
+      <origin xyz="-0.00021981 0.46016551 -0.33295674" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_005_NAUO5.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_013_visual_2">
+      <origin xyz="-0.00021981 0.46016551 -0.33295674" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_013_NAUO13.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_013_collision_2">
+      <origin xyz="-0.00021981 0.46016551 -0.33295674" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_013_NAUO13.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <link name="link_006">
+    <inertial>
+      <origin xyz="0.00051287 -0.10820073 0.04003143" rpy="0 0 0"/>
+      <mass value="0.04801739"/>
+      <inertia ixx="0.00040537" ixy="0" ixz="0" iyy="0.00003848" iyz="0.00003947" izz="0.00040395"/>
+    </inertial>
+    <visual name="part_015_visual_1">
+      <origin xyz="-0.01294824 0.49447134 -0.37673771" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_015_NAUO15.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_015_collision_1">
+      <origin xyz="-0.01294824 0.49447134 -0.37673771" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_015_NAUO15.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+    <visual name="part_014_visual_2">
+      <origin xyz="-0.01294824 0.49447134 -0.37673771" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_014_NAUO14.stl" scale="0.001 0.001 0.001"/></geometry>
+    </visual>
+    <collision name="part_014_collision_2">
+      <origin xyz="-0.01294824 0.49447134 -0.37673771" rpy="1.57079633 0 0"/>
+      <geometry><mesh filename="meshes/part_014_NAUO14.stl" scale="0.001 0.001 0.001"/></geometry>
+    </collision>
+  </link>
+  <joint name="link_002_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_002"/>
+    <origin xyz="0.00086197 -0.22014068 0.02325593" rpy="0 0 0"/>
+    <axis xyz="0.03898954 0.04300709 -0.99831368"/>
+    <limit lower="-1.754" upper="1.754" effort="10" velocity="5"/>
+  </joint>
+  <joint name="link_003_joint" type="revolute">
+    <parent link="link_002"/>
+    <child link="link_003"/>
+    <origin xyz="-0.00005086 -0.03429032 0.08068241" rpy="0 0 0"/>
+    <axis xyz="-0.99950657 0.03027641 -0.00836374"/>
+    <limit lower="-1.047" upper="2.269" effort="10" velocity="5"/>
+  </joint>
+  <joint name="link_004_joint" type="revolute">
+    <parent link="link_003"/>
+    <child link="link_004"/>
+    <origin xyz="-0.00005 -0.0968621 0.0941661" rpy="0 0 0"/>
+    <axis xyz="0.99993532 -0.00861166 -0.00742885"/>
+    <limit lower="-2.88" upper="0.175" effort="10" velocity="5"/>
+  </joint>
+  <joint name="link_005_joint" type="revolute">
+    <parent link="link_004"/>
+    <child link="link_005"/>
+    <origin xyz="-0.0005413 -0.10887241 0.13485231" rpy="0 0 0"/>
+    <axis xyz="0.99965519 -0.0262437 0.00088265"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="5"/>
+  </joint>
+  <joint name="joint_005" type="revolute">
+    <parent link="link_005"/>
+    <child link="link_006"/>
+    <origin xyz="0.01272843 -0.03430583 0.04378097" rpy="0 0 0"/>
+    <axis xyz="0.04273337 -0.62989219 0.77550609"/>
+    <limit lower="-1.745" upper="1.745" effort="10" velocity="5"/>
+  </joint>
+</robot>
