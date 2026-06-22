@@ -1,0 +1,20 @@
+You are helping a robot scoop unknown food safely.
+
+Given a food name or a short food description, estimate four physical attributes.
+Return only JSON with values in [0, 1].
+
+Attributes:
+- hardness: 0 means liquid/very soft, 1 means very hard.
+- stickiness: 0 means not sticky, 1 means highly sticky.
+- rollability: 0 means stable/non-rolling, 1 means easily rolls away.
+- fragility: 0 means hard to break, 1 means easily breaks or crumbles.
+
+Food: {food_name}
+
+Expected JSON format:
+{
+  "hardness": 0.0,
+  "stickiness": 0.0,
+  "rollability": 0.0,
+  "fragility": 0.0
+}

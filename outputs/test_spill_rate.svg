@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="430" viewBox="0 0 860 430">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="170" y="26" font-family="Arial" font-size="20" fill="#111827">test spill_rate</text>
+<text x="18" y="68" font-family="Arial" font-size="14" fill="#111827">baseline_grits</text>
+<rect x="170" y="40" width="200" height="42" fill="#4b5563"/>
+<text x="380" y="68" font-family="Arial" font-size="14" fill="#111827">0.33</text>
+<text x="18" y="135" font-family="Arial" font-size="14" fill="#111827">human_upper_bound</text>
+<rect x="170" y="107" width="120" height="42" fill="#9ca3af"/>
+<text x="300" y="135" font-family="Arial" font-size="14" fill="#111827">0.20</text>
+<text x="18" y="202" font-family="Arial" font-size="14" fill="#111827">llm_bias</text>
+<rect x="170" y="174" width="138" height="42" fill="#60a5fa"/>
+<text x="318" y="202" font-family="Arial" font-size="14" fill="#111827">0.23</text>
+<text x="18" y="269" font-family="Arial" font-size="14" fill="#111827">llm_decision_only</text>
+<rect x="170" y="241" width="190" height="42" fill="#22c55e"/>
+<text x="370" y="269" font-family="Arial" font-size="14" fill="#111827">0.32</text>
+<text x="18" y="336" font-family="Arial" font-size="14" fill="#111827">random_bias</text>
+<rect x="170" y="308" width="234" height="42" fill="#f59e0b"/>
+<text x="414" y="336" font-family="Arial" font-size="14" fill="#111827">0.39</text>
+</svg>
