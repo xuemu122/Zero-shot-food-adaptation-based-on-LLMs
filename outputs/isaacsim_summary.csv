@@ -1,0 +1,11 @@
+split,method,trials,success_rate,spill_rate,trajectory_rmse_from_baseline
+real,baseline_grits,50,0.6,0.3,0.0
+real,human_upper_bound,50,0.78,0.24,0.09248892394583544
+real,llm_bias,50,0.82,0.18,0.07536917560039029
+real,llm_decision_only,50,0.58,0.32,0.02769512965386097
+real,random_bias,50,0.52,0.38,0.12821055476105805
+test,baseline_grits,300,0.6533333333333333,0.37333333333333335,0.0
+test,human_upper_bound,300,0.8266666666666667,0.25,0.09747082520358234
+test,llm_bias,300,0.74,0.26,0.08037733682281778
+test,llm_decision_only,300,0.68,0.28,0.03279871995704954
+test,random_bias,300,0.42,0.3333333333333333,0.12229011299506692

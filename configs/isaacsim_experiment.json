@@ -1,0 +1,42 @@
+{
+  "experiment_name": "llm_zero_shot_food_adaptation_isaacsim",
+  "seed": 42,
+  "trials": {
+    "test": 30,
+    "real": 5
+  },
+  "methods": [
+    "baseline_grits",
+    "random_bias",
+    "llm_decision_only",
+    "llm_bias",
+    "human_upper_bound"
+  ],
+  "action_space": [
+    "approach_speed",
+    "scoop_depth",
+    "tilt_angle",
+    "lift_speed"
+  ],
+  "attribute_space": [
+    "hardness",
+    "stickiness",
+    "rollability",
+    "fragility"
+  ],
+  "bias_scale": 0.85,
+  "paths": {
+    "food_attributes_csv": "data/foods.csv",
+    "output_csv": "outputs/isaacsim_experiment_results.csv",
+    "summary_csv": "outputs/isaacsim_summary.csv",
+    "isaac_stage": "",
+    "policy_checkpoint": "",
+    "food_asset_root": ""
+  },
+  "isaac": {
+    "headless": true,
+    "renderer": "RayTracedLighting",
+    "physics_dt": 0.0166666667,
+    "rendering_dt": 0.0166666667
+  }
+}
